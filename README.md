@@ -1,7 +1,7 @@
 # Email Client Deployment
 
 ## Overview
-Using my university website design as a base i've build an email client to send messages to my users and conformation to the university staffs corresponding to theri Login Credentials. 
+Using my university website design as a base, i've build an email client to send messages to my users and conformation to the university staffs corresponding to their Login Credentials. 
 
 ## Technologies Used
 - HTML
