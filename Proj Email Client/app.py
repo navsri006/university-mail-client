@@ -17,15 +17,15 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', sco
 client = gspread.authorize(creds)
 
 # Google Sheets
-spreadsheet_id = '1J1SNCox0tvUWubFw06MZEcP6ALUPki3SvCW7WjYxeTY'
+spreadsheet_id = '#########################'
 students_sheet = client.open_by_key(spreadsheet_id).worksheet("Students")
 documents_sheet = client.open_by_key(spreadsheet_id).worksheet("Documents")
 staff_sheet = client.open_by_key(spreadsheet_id).worksheet("Staff")
 
 # Helper: Send Email
 def send_email(to_email, subject, body):
-    from_email = "up2290345@myport.ac.uk"
-    password = "UOPUK.NavSri@1311"  # Use App-Specific Password if 2FA is enabled
+    from_email = "My.Gmail@gmail.com"  # Enter Your Respected Mail ID Here
+    password = "Mail.Password"  # Use App-Specific Password if 2FA is enabled (or) without 2FA 
 
     msg = MIMEMultipart()
     msg['From'] = from_email
@@ -48,7 +48,7 @@ from googleapiclient.http import MediaFileUpload
 import mimetypes
 
 # Google Drive Folder ID (replace with your folder ID)
-DRIVE_FOLDER_ID = "14B8GmYF0YNLgfP6zxmVej2SQdpPV2yP5"
+DRIVE_FOLDER_ID = "FULL.ID" 
 
 # Authenticate Google Drive API
 def authenticate_drive_api():
@@ -102,7 +102,7 @@ def login():
             student_cell = students_sheet.find(email)
             if student_cell:
                 student_row = students_sheet.row_values(student_cell.row)
-                stored_password = student_row[6]  # The hashed password is in the 7th column (index 6)
+                stored_password = student_row[6]  # The hashed password is in the 7th column (index 6) #
 
                 # Verify password using bcrypt (for students)
                 if bcrypt.checkpw(password.encode('utf-8'), stored_password.encode('utf-8')):
@@ -510,8 +510,8 @@ from email.mime.text import MIMEText
 
 # Email helper function
 def send_email(to_email, subject, body):
-    from_email = "up2290345@myport.ac.uk"
-    password = "UOPUK.NavSri@1311"  # Use an app-specific password for better security
+    from_email = "My.MailID"
+    password = "My.Password"  # Use an app-specific password for better security
     msg = MIMEMultipart()
     msg['From'] = from_email
     msg['To'] = to_email
@@ -548,7 +548,7 @@ def staff_email_student(student_email):
 
 #ROUTE FOR REGISTRATION 
 
-students_sheet = client.open_by_key('1J1SNCox0tvUWubFw06MZEcP6ALUPki3SvCW7WjYxeTY').worksheet("Students")
+students_sheet = client.open_by_key('#####################').worksheet("Students")
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
